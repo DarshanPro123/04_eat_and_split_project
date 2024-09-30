@@ -17,7 +17,7 @@ body {
 }
 
 .green {
-  color: #65fd0d;
+  color: #167008;
 }
 
 .red {
@@ -25,7 +25,7 @@ body {
 }
 
 .blue {
-  color: blue;
+  color: rgb(9, 9, 154);
 }
 
 /* <------------------------For Common Button--------------------------> */
@@ -34,7 +34,8 @@ body {
   background-color: #d4ff3f;
   color: #343a40;
   padding: 20px 40px;
-  width: 10%;
+  /* width: 10%; */
+  text-align: center;
   border: none;
   margin: 10px;
   border-radius: 10px;
@@ -51,70 +52,72 @@ body {
 
 .container {
   width: 100%;
-  height: 90vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-/* <--------------------------lists-Box css-----------------------> */
+/* <-------------------------List Boxs-----------------------> */
 .lists-box {
   background-color: #fff;
-  color: #000;
+  margin-top: 40px;
+}
+
+.lists-box h2 {
+  font-size: 3rem;
+  text-decoration: underline;
+  color: #000000bb;
+}
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.list {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: antiquewhite;
   padding: 20px;
-  border-radius: 8px;
 }
 
-.lists h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.lists ul {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  padding: 0; /* Remove default padding */
-  list-style-type: none; /* Remove bullet points */
-}
-
-.lists ul li {
-  border: 1px solid wheat; /* Border color for each list item */
-  display: flex;
-  justify-content: space-between; /* Space between image/info and button */
-  align-items: center; /* Center items vertically */
-  margin: 10px 0; /* Margin between items */
-  padding: 15px; /* Padding inside each item */
-  border-radius: 5px; /* Rounded corners for list items */
-}
-
-.lists ul li img {
+.list img {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  width: 80px;
-  height: 80px;
 }
 
-.content {
-  display: flex;
-  align-items: center;
+.list img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
-.frnd-info {
+.main-content {
+  height: auto;
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.frnd-info h3 {
+.main-content h3 {
+  font-weight: 500;
+  color: rgb(43, 43, 43);
   font-size: 1.6rem;
 }
 
-.frnd-info p {
-  margin: 5px 0;
+.main-content p {
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
-/* <--------------------------Add list form css--------------------------> */
+/* <-----------------------add_list_box------------------> */
+
 .add_list_box {
-  background-color: #f4eec1;
-  color: #000000;
+  /* background-color: antiquewhite; */
+  /* width: 100%; */
 }
