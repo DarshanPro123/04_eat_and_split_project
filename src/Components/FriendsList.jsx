@@ -3,7 +3,7 @@ import CommonBtn from "./CommonBtn";
 import OneList from "./OneList";
 
 // eslint-disable-next-line react/prop-types
-const FriendsList = ({ handleAddForm }) => {
+const FriendsList = ({ handleAddForm, showAddForm }) => {
   return (
     <div className="lists-box">
       <h2>My Friend List</h2>
@@ -21,7 +21,9 @@ const FriendsList = ({ handleAddForm }) => {
           );
         })}
       </div>
-      <CommonBtn onClick={handleAddForm}>Add List</CommonBtn>
+      <CommonBtn onClick={handleAddForm}>
+        {showAddForm ? "Remove" : "Add List"}
+      </CommonBtn>
     </div>
   );
 };

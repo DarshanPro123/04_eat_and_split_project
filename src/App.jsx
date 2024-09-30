@@ -14,7 +14,7 @@ function App() {
     <>
       <h1>My Split Bill App</h1>
       <div className="container">
-        <FriendsList handleAddForm={handleAddForm} />
+        <FriendsList handleAddForm={handleAddForm} showAddForm={showAddForm} />
         {showAddForm && <AddFriendForm handleAddForm={handleAddForm} />}
       </div>
     </>

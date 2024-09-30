@@ -14,6 +14,7 @@ body {
   /* color: #fba043; */
   text-align: center;
   font-family: "Lato", sans-serif;
+  position: relative;
 }
 
 .green {
@@ -131,7 +132,10 @@ body {
   text-align: left;
   margin: 30px auto;
   padding: 20px;
-  position: relative;
+  top: 30%;
+  right: 40%;
+  position: absolute;
+  animation: SlideUpToDown 4s ease-in 0.4s;
 }
 
 .add_list_box h1 {
@@ -139,6 +143,7 @@ body {
 }
 
 .form_content {
+  position: relative;
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -167,8 +172,17 @@ input[type="text"] {
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -30px;
+  right: -10px;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+@keyframes SlideUpToDown {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 30%;
+  }
 }
