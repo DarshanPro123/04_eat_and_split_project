@@ -33,7 +33,7 @@ body {
 .button {
   background-color: #d4ff3f;
   color: #343a40;
-  padding: 20px 40px;
+  padding: 10px 40px;
   /* width: 10%; */
   text-align: center;
   border: none;
@@ -60,7 +60,8 @@ body {
 /* <-------------------------List Boxs-----------------------> */
 .lists-box {
   background-color: #fff;
-  margin-top: 40px;
+  border: 1px solid black;
+  margin: 50px 0;
 }
 
 .lists-box h2 {
@@ -68,20 +69,25 @@ body {
   text-decoration: underline;
   color: #000000bb;
 }
+
 .lists {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  margin: 50px 0;
 }
 
 .list {
   width: 500px;
   height: 300px;
   border-radius: 10px;
-  background-color: antiquewhite;
+  background-color: rgb(231, 230, 227);
   padding: 20px;
+}
+
+.list:hover {
+  transform: scale(1.04);
+  cursor: pointer;
 }
 
 .list img {
@@ -118,6 +124,51 @@ body {
 /* <-----------------------add_list_box------------------> */
 
 .add_list_box {
-  /* background-color: antiquewhite; */
-  /* width: 100%; */
+  width: 320px;
+  height: auto;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  text-align: left;
+  margin: 30px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.add_list_box h1 {
+  text-align: center;
+}
+
+.form_content {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.form_content label {
+  font-size: 1.4rem;
+  margin: 8px 0;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 1.4rem;
+  color: rgb(27, 26, 26);
+  background-color: rgb(255, 255, 255);
+}
+.add_list_box .button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

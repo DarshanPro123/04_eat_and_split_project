@@ -1,8 +1,10 @@
 // eslint-disable-next-line react/prop-types
-const CommonBtn = ({ children }) => {
+const CommonBtn = ({ children, onClick }) => {
   return (
     <>
-      <button className="button">{children}</button>
+      <button className="button" onClick={onClick}>
+        {children}
+      </button>
     </>
   );
 };

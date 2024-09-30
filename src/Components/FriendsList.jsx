@@ -1,7 +1,9 @@
 import friends from "../../public/data";
 import CommonBtn from "./CommonBtn";
+import OneList from "./OneList";
 
-const FriendsList = () => {
+// eslint-disable-next-line react/prop-types
+const FriendsList = ({ handleAddForm }) => {
   return (
     <div className="lists-box">
       <h2>My Friend List</h2>
@@ -9,34 +11,17 @@ const FriendsList = () => {
         {friends.map((friend) => {
           return (
             <>
-              <div className="list" key={friend.id}>
-                <img src={friend.image} alt="" />
-
-                <div className="main-content">
-                  <h3>{friend.name}</h3>
-                  {friend.balance < 0 && (
-                    <p className="red">
-                      You debt with {friend.name} of ${" "}
-                      {Math.abs(friend.balance)}
-                    </p>
-                  )}
-                  {friend.balance > 0 && (
-                    <p className="green">
-                      {friend.name} debt with you of $ {friend.balance}
-                    </p>
-                  )}
-                  {friend.balance === 0 && (
-                    <p className="blue">You debt with {friend.name} clear </p>
-                  )}
-                </div>
-
-                <CommonBtn>Select</CommonBtn>
-              </div>
+              <OneList
+                key={friend.id}
+                img={friend.image}
+                name={friend.name}
+                bal={friend.balance}
+              />
             </>
           );
         })}
       </div>
-      <CommonBtn>Add List</CommonBtn>
+      <CommonBtn onClick={handleAddForm}>Add List</CommonBtn>
     </div>
   );
 };
