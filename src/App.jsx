@@ -8,15 +8,17 @@ import SplitBillForm from "./Components/SplitBillForm";
 function App() {
   const [friendList, setFriendList] = useState(initialFriends);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [selectedFriend, setSElectedFriend] = useState(null);
 
   const handleAddForm = () => {
     setShowAddForm((prev) => !prev); // Toggle the form visibility
   };
 
   const handleFriendList = (friend) => {
-    setFriendList((friends) => [...friends, friend]); // Add new friend to the list
+    setFriendList((friends) => [...friends, friend]);
     setShowAddForm(false);
   };
+  console.log(friendList); // Add new friend to the list
 
   return (
     <>
@@ -34,7 +36,7 @@ function App() {
           />
         )}
 
-        <SplitBillForm />
+        {selectedFriend && <SplitBillForm />}
       </div>
     </>
   );

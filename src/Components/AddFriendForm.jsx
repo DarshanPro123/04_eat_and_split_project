@@ -12,9 +12,9 @@ const AddFriendForm = ({ handleAddForm, onFriend }) => {
     if (!name || !image) return;
     const id = crypto.randomUUID();
     const newFriend = {
+      id,
       name,
       image: `${image}?=${id}`,
-      id,
       balance: 0,
     };
 
