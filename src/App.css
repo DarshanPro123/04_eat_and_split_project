@@ -236,3 +236,32 @@ select:focus {
   border: 1px solid black;
   border-radius: 6px;
 }
+
+@media (max-width: 430px) {
+  body {
+    text-align: center;
+  }
+
+  .list {
+    width: 400px;
+    padding: 0;
+  }
+
+  .overLay {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .add_list_box {
+    width: 80%;
+    right: 0%;
+    left: 0;
+    margin: 0 auto;
+    top: 10%;
+    padding: 6px;
+  }
+
+  .close {
+    right: 10px;
+  }
+}

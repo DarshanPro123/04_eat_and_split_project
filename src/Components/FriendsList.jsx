@@ -1,25 +1,25 @@
-import friends from "../../public/data";
 import CommonBtn from "./CommonBtn";
 import OneList from "./OneList";
 
 // eslint-disable-next-line react/prop-types
-const FriendsList = ({ handleAddForm, showAddForm }) => {
+const FriendsList = ({ handleAddForm, showAddForm, friends }) => {
   return (
     <div className="lists-box">
       <h2>My Friend List</h2>
       <div className="lists">
-        {friends.map((friend) => {
-          return (
-            <>
+        {/* Map over friends and render OneList for each friend */}
+        {friends &&
+          // eslint-disable-next-line react/prop-types
+          friends.map((friend) => {
+            return (
               <OneList
-                key={friend.id}
+                key={friend.id} // Place key here on OneList
                 img={friend.image}
                 name={friend.name}
                 bal={friend.balance}
               />
-            </>
-          );
-        })}
+            );
+          })}
       </div>
       <CommonBtn onClick={handleAddForm}>
         {showAddForm ? "Remove" : "Add List"}
