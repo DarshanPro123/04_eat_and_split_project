@@ -13,6 +13,7 @@ const AddFriendForm = ({ handleAddForm }) => {
 
           <label> Img Url🌅 :</label>
           <input type="text" />
+
           <CommonBtn>Add</CommonBtn>
           <div className={`close`} onClick={handleAddForm}>
             ❌
