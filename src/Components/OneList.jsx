@@ -4,7 +4,7 @@ import CommonBtn from "./CommonBtn";
 const OneList = ({ name, bal, img }) => {
   return (
     <>
-      <div className="list">
+      <div className="list" key={bal}>
         <img src={img} alt="" />
 
         <div className="main-content">
