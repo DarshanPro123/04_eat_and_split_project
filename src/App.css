@@ -270,9 +270,6 @@ select:focus {
   text-align: start;
 }
 
-.edit-friend input {
-}
-
 @media (max-width: 430px) {
   body {
     text-align: center;
