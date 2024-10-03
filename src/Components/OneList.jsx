@@ -1,5 +1,4 @@
 import CommonBtn from "./CommonBtn";
-import PropTypes from "prop-types";
 
 const OneList = ({
   friend,
@@ -46,23 +45,6 @@ const OneList = ({
       </CommonBtn>
     </div>
   );
-};
-
-// Define prop types for validation
-OneList.propTypes = {
-  friend: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string, // Assuming id is a string; adjust if it's a different type
-  }).isRequired,
-  name: PropTypes.string.isRequired,
-  bal: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired,
-  onSelectFriend: PropTypes.func.isRequired,
-  onEditFriend: PropTypes.func.isRequired,
-  selectEditFriend: PropTypes.func.isRequired,
-  selectedFriend: PropTypes.shape({
-    id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
-  }).isRequired,
 };
 
 export default OneList;

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CommonBtn from "./CommonBtn";
-import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/prop-types
 const SplitBillForm = ({ selectedFriend, onSplitBill }) => {
@@ -56,12 +55,6 @@ const SplitBillForm = ({ selectedFriend, onSplitBill }) => {
       </form>
     </>
   );
-};
-
-SplitBillForm.propTypes = {
-  selectedFriend: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default SplitBillForm;
