@@ -38,19 +38,19 @@ const FriendsList = ({
 
 // Define prop types for validation
 FriendsList.propTypes = {
-  handleAddForm: PropTypes.func.isRequired,
-  showAddForm: PropTypes.bool.isRequired,
+  handleAddForm: PropTypes.func,
+  showAddForm: PropTypes.bool,
   friends: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
-      image: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      balance: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired, // Assuming id is a string; adjust if it's a different type
+      image: PropTypes.string,
+      name: PropTypes.string,
+      balance: PropTypes.number,
     })
   ).isRequired,
   onSelectFriend: PropTypes.func.isRequired,
   selectedFriend: PropTypes.shape({
-    id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
+    id: PropTypes.string, // Assuming id is a string; adjust if it's a different type
   }).isRequired,
 };
 

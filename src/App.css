@@ -32,7 +32,7 @@ body {
 /* <------------------------For Common Button--------------------------> */
 
 .button {
-  background-color: #d4ff3f;
+  background-color: #ff793f;
   color: #343a40;
   padding: 10px 40px;
   /* width: 10%; */
@@ -90,7 +90,7 @@ body {
 
 .selected {
   transform: scale(1.1);
-  background-color: antiquewhite;
+  background-color: rgb(255, 245, 233);
 }
 
 .list:hover {
