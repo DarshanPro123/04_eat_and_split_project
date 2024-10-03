@@ -4,36 +4,56 @@ import initialFriends from "../public/data"; // Ensure this path is correct
 import AddFriendForm from "./Components/AddFriendForm";
 import FriendsList from "./Components/FriendsList";
 import SplitBillForm from "./Components/SplitBillForm";
+import EditFriendsForm from "./Components/EditFriendsForm";
 
 function App() {
   const [friendList, setFriendList] = useState(initialFriends);
   const [showAddForm, setShowAddForm] = useState(false);
-  const [selectedFriend, setSelectedFriend] = useState(null); // Fixed naming
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [selectEditFriend, setSelectEditFriend] = useState(null);
 
-  const handleAddForm = () => {
-    setShowAddForm((prev) => !prev); // Toggle the form visibility
+  const toggleAddForm = () => {
+    setShowAddForm((prev) => !prev);
   };
 
-  const handleFriendList = (friend) => {
+  const addFriendToList = (friend) => {
     setFriendList((friends) => [...friends, friend]);
     setShowAddForm(false);
   };
 
-  const handleSelectionFriend = (friend) => {
-    setSelectedFriend((cur) => (cur && cur?.id === friend.id ? null : friend));
+  const selectFriend = (friend) => {
+    setSelectedFriend((current) =>
+      current && current.id === friend.id ? null : friend
+    );
     setShowAddForm(false);
+    setSelectEditFriend(null); // Reset edit selection when selecting a friend
   };
 
-  const handleSplitBill = (value) => {
-    console.log(value);
-    setFriendList((friendList) =>
-      friendList.map((friend) =>
-        friend.id === selectedFriend.id
-          ? { ...friend, balance: friend.balance + value }
-          : friend
+  const splitBillForFriend = (value) => {
+    if (!selectedFriend) return; // Prevent errors if no friend is selected
+    setFriendList((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id ? { ...friend, balance: value } : friend
       )
     );
     setSelectedFriend(null);
+  };
+
+  const editFriendSelection = (friend) => {
+    setSelectEditFriend((current) =>
+      current && current.id === friend.id ? null : friend
+    );
+  };
+
+  const saveEditedFriend = (url, newName) => {
+    setFriendList((friends) =>
+      friends.map((friend) =>
+        friend.id === selectEditFriend.id
+          ? { ...friend, image: url, name: newName }
+          : friend
+      )
+    );
+    setSelectEditFriend(null); // Reset edit selection after saving
   };
 
   return (
@@ -41,22 +61,30 @@ function App() {
       <h1>My Split Bill App</h1>
       <div className="container">
         <FriendsList
-          onSelectFriend={handleSelectionFriend}
-          handleAddForm={handleAddForm}
+          onSelectFriend={selectFriend}
+          handleAddForm={toggleAddForm}
           showAddForm={showAddForm}
           friends={friendList}
           selectedFriend={selectedFriend}
+          selectEditFriend={selectEditFriend}
+          onEditFriend={editFriendSelection}
         />
         {showAddForm && (
           <AddFriendForm
-            handleAddForm={handleAddForm}
-            onFriend={handleFriendList}
+            handleAddForm={toggleAddForm}
+            onFriend={addFriendToList}
           />
         )}
         {selectedFriend && (
           <SplitBillForm
             selectedFriend={selectedFriend}
-            onSplitBill={handleSplitBill}
+            onSplitBill={splitBillForFriend}
+          />
+        )}
+        {selectEditFriend && (
+          <EditFriendsForm
+            selectEditFriend={selectEditFriend}
+            onEdit={saveEditedFriend} // Pass edited data as an object
           />
         )}
       </div>

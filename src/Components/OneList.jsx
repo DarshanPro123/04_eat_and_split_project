@@ -8,15 +8,26 @@ const OneList = ({
   img,
   onSelectFriend,
   selectedFriend,
+  onEditFriend,
+  selectEditFriend,
 }) => {
   const isSelected = selectedFriend?.id === friend.id;
+  const isEditable = selectEditFriend?.id === friend.id;
 
   return (
     <div className={`list ${isSelected ? "selected" : ""}`} key={bal}>
+      <div
+        className="edit-btn"
+        onClick={() => {
+          onEditFriend(friend);
+        }}
+      >
+        {isEditable ? "📁" : "🖋️"}
+      </div>
       <img src={img} alt={name} />
 
       <div className="main-content">
-        <h3>{name}</h3>
+        <h3>{friend.name}</h3>
         {bal < 0 && (
           <p className="red">
             You owe {name} $ {Math.abs(bal)}

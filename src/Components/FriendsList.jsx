@@ -8,6 +8,8 @@ const FriendsList = ({
   friends,
   onSelectFriend,
   selectedFriend,
+  onEditFriend,
+  selectEditFriend,
 }) => {
   return (
     <div className="lists-box">
@@ -25,6 +27,8 @@ const FriendsList = ({
                 bal={friend.balance}
                 onSelectFriend={onSelectFriend}
                 selectedFriend={selectedFriend}
+                selectEditFriend={selectEditFriend}
+                onEditFriend={onEditFriend}
               />
             );
           })}
