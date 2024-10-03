@@ -88,6 +88,11 @@ body {
   padding: 20px;
 }
 
+.selected {
+  transform: scale(1.1);
+  background-color: antiquewhite;
+}
+
 .list:hover {
   transform: scale(1.04);
   cursor: pointer;

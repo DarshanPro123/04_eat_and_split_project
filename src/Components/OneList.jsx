@@ -1,31 +1,54 @@
 import CommonBtn from "./CommonBtn";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
-const OneList = ({ name, bal, img }) => {
+const OneList = ({
+  friend,
+  name,
+  bal,
+  img,
+  onSelectFriend,
+  selectedFriend,
+}) => {
+  const isSelected = selectedFriend?.id === friend.id;
+
   return (
-    <>
-      <div className="list" key={bal}>
-        <img src={img} alt="" />
+    <div className={`list ${isSelected ? "selected" : ""}`} key={bal}>
+      <img src={img} alt={name} />
 
-        <div className="main-content">
-          <h3>{name}</h3>
-          {bal < 0 && (
-            <p className="red">
-              You debt with {name} of $ {Math.abs(bal)}
-            </p>
-          )}
-          {bal > 0 && (
-            <p className="green">
-              {name} debt with you of $ {bal}
-            </p>
-          )}
-          {bal === 0 && <p className="blue">You debt with {name} clear </p>}
-        </div>
-
-        <CommonBtn>Select</CommonBtn>
+      <div className="main-content">
+        <h3>{name}</h3>
+        {bal < 0 && (
+          <p className="red">
+            You owe {name} $ {Math.abs(bal)}
+          </p>
+        )}
+        {bal > 0 && (
+          <p className="green">
+            {name} owes you $ {bal}
+          </p>
+        )}
+        {bal === 0 && <p className="blue">You and {name} are clear</p>}
       </div>
-    </>
+
+      <CommonBtn onClick={() => onSelectFriend(friend)}>
+        {isSelected ? "close" : "Select"}
+      </CommonBtn>
+    </div>
   );
+};
+
+// Define prop types for validation
+OneList.propTypes = {
+  friend: PropTypes.shape({
+    id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
+  }).isRequired,
+  name: PropTypes.string.isRequired,
+  bal: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  onSelectFriend: PropTypes.func.isRequired,
+  selectedFriend: PropTypes.shape({
+    id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
+  }).isRequired,
 };
 
 export default OneList;

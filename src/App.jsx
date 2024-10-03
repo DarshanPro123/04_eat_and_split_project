@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import initialFriends from "../public/data";
+import initialFriends from "../public/data"; // Ensure this path is correct
 import AddFriendForm from "./Components/AddFriendForm";
 import FriendsList from "./Components/FriendsList";
 import SplitBillForm from "./Components/SplitBillForm";
@@ -8,7 +8,7 @@ import SplitBillForm from "./Components/SplitBillForm";
 function App() {
   const [friendList, setFriendList] = useState(initialFriends);
   const [showAddForm, setShowAddForm] = useState(false);
-  const [selectedFriend, setSElectedFriend] = useState(null);
+  const [selectedFriend, setSelectedFriend] = useState(null); // Fixed naming
 
   const handleAddForm = () => {
     setShowAddForm((prev) => !prev); // Toggle the form visibility
@@ -18,16 +18,21 @@ function App() {
     setFriendList((friends) => [...friends, friend]);
     setShowAddForm(false);
   };
-  console.log(friendList); // Add new friend to the list
+
+  const handleSelectionFriend = (friend) => {
+    setSelectedFriend((cur) => (cur && cur?.id === friend.id ? null : friend));
+  };
 
   return (
     <>
       <h1>My Split Bill App</h1>
       <div className="container">
         <FriendsList
+          onSelectFriend={handleSelectionFriend}
           handleAddForm={handleAddForm}
           showAddForm={showAddForm}
           friends={friendList}
+          selectedFriend={selectedFriend}
         />
         {showAddForm && (
           <AddFriendForm
@@ -35,8 +40,7 @@ function App() {
             onFriend={handleFriendList}
           />
         )}
-
-        {selectedFriend && <SplitBillForm />}
+        {selectedFriend && <SplitBillForm selectedFriend={selectedFriend} />}
       </div>
     </>
   );
