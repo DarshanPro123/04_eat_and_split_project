@@ -51,7 +51,8 @@ const OneList = ({
 // Define prop types for validation
 OneList.propTypes = {
   friend: PropTypes.shape({
-    id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
+    id: PropTypes.string,
+    name: PropTypes.string, // Assuming id is a string; adjust if it's a different type
   }).isRequired,
   name: PropTypes.string.isRequired,
   bal: PropTypes.number.isRequired,
