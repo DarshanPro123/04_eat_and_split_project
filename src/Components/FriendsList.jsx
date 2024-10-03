@@ -53,6 +53,8 @@ FriendsList.propTypes = {
     })
   ).isRequired,
   onSelectFriend: PropTypes.func.isRequired,
+  onEditFriend: PropTypes.func.isRequired,
+  selectEditFriend: PropTypes.func.isRequired,
   selectedFriend: PropTypes.shape({
     id: PropTypes.string, // Assuming id is a string; adjust if it's a different type
   }).isRequired,

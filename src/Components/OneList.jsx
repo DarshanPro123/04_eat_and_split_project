@@ -57,6 +57,8 @@ OneList.propTypes = {
   bal: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
   onSelectFriend: PropTypes.func.isRequired,
+  onEditFriend: PropTypes.func.isRequired,
+  selectEditFriend: PropTypes.func.isRequired,
   selectedFriend: PropTypes.shape({
     id: PropTypes.string.isRequired, // Assuming id is a string; adjust if it's a different type
   }).isRequired,
